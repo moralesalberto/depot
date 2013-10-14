@@ -12,12 +12,12 @@ $ rails new depot --skip-test-unit
 ```
 Next we need to setup the test environment. Add to the Gemfile
 
-```
+``` ruby
 group :test do
   gem 'cucumber-rails'
-	gem 'rspec-rails'
-	gem 'database_cleaner'
-	gem 'factory_girl'
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl'
 end
 ```
 And we need to generate the cucumber specific files
@@ -39,12 +39,12 @@ Using the default profile...
 
 The next step is to create `.feature` files in the `features` directory. We will start with the listing of products for the admin interface.
 
-```
+``` cucumber
 Feature: Admin interface to view and create products 
   Scenario: Show product listing
   Given there is an Admin user
   When the Admin user visits the products page
-	Then a list of products should be shown with links to view/modifiy them
-	And a link to Add a New Product should be shown as well
+  Then a list of products should be shown with links to view/modifiy them
+  And a link to Add a New Product should be shown as well
 ```
 
