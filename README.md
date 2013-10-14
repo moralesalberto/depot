@@ -302,6 +302,6 @@ Feature: Admin interface to view and create products
 0m0.308s
 ```
 
-
+If you want to continue with this exercise, please refer to the [wiki](https://github.com/moralesalberto/depot/wiki) on this repository. You will see the rest of the work that I am doing to code the Depot applicaiton with Cucumber and HAML.
 
 
