@@ -25,5 +25,5 @@ And we need to generate the cucumber specific files
 ```
 $ rails g cucumber:install
 ```
-That will have created the necessary default files and the the needed features directory at the top level.
+That will have created the necessary default files and the the needed `features` directory at the top level.
 
