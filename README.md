@@ -272,7 +272,8 @@ end
 
 On the first line, we create the only product for this test.  We ensure this product is in the database by testing the count.
 Then we use the `visit` method to go to the products_path page. We test for the presence of the title of the book we just added.
-Also, since we only have one product, we load it to instantiate the show product route `product_path(product)`
+Also, since we only have one product, we load it to instantiate the show product route `product_path(product)` and test for its
+existence in the page html.
 
 Finally we add the last test to check for the New Product link.
 
@@ -283,7 +284,7 @@ Then(/^a link to Add a New Product should also be shown$/) do
 end
 ```
 
-If I explained everything correctly, and you were able to follow, then you should see:
+If I explained everything correctly, and you were able to follow, then you should see this Feature pass. 
 
 ```
 $ bundle exec cucumber
@@ -300,6 +301,7 @@ Feature: Admin interface to view and create products
 4 steps (4 passed)
 0m0.308s
 ```
+
 
 
 
