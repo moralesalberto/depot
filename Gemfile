@@ -46,7 +46,6 @@ end
 
 group :development do
   gem 'guard-cucumber'
-  gem 'cucumber-rails'
 end
 
 group :test do
@@ -54,6 +53,7 @@ group :test do
   gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'factory_girl'
+  gem 'faker'
 end
 
 gem 'haml'

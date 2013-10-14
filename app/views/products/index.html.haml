@@ -1,0 +1,17 @@
+%table
+  %thead
+    %tr
+      %th Title
+      %th Description
+      %th Price
+      %th Links
+  %tbody
+    - @products.each do |product|
+      %tr
+        %td= product.title
+        %td= product.description
+        %td= product.price
+        %td= link_to('Show', product_path(product))
+
+%div
+  = link_to('New Product', new_product_path)

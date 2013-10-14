@@ -44,50 +44,43 @@ Feature: Admin interface to view and create products
   Scenario: Show product listing
   Given there is an Admin user
   When the Admin user visits the products page
-  Then a list of products should be shown with links to view/modifiy them
-  And a link to Add a New Product should be shown as well
+  Then a list of products should be shown, each with a link to View the product detail
+  And a link to Add a New Product should also be shown
 ```
 If you run cucumber again, of course you expect your tests to fail. That is the point, the errors will point you to where to go next.
 
 ```
 $ bundle exec cucumber
-
 Using the default profile...
 Feature: Admin interface to view and create products
 
-  Scenario: Show product listing                                            # features/products.feature:2
-    Given there is an Admin user                                            # features/products.feature:3
-      Undefined step: "there is an Admin user" (Cucumber::Undefined)
-      features/products.feature:3:in `Given there is an Admin user'
-    When the Admin user visits the products page                            # features/products.feature:4
+  Scenario: Show product listing                                                         # features/products.feature:2
+    Given there is an Admin user                                                         # features/step_definitions/products.rb:1
+    When the Admin user visits the products page                                         # features/products.feature:4
       Undefined step: "the Admin user visits the products page" (Cucumber::Undefined)
       features/products.feature:4:in `When the Admin user visits the products page'
-    Then a list of products should be shown with links to view/modifiy them # features/products.feature:5
-      Undefined step: "a list of products should be shown with links to view/modifiy them" (Cucumber::Undefined)
-      features/products.feature:5:in `Then a list of products should be shown with links to view/modifiy them'
-    And a link to Add a New Product should be shown as well                 # features/products.feature:6
-      Undefined step: "a link to Add a New Product should be shown as well" (Cucumber::Undefined)
-      features/products.feature:6:in `And a link to Add a New Product should be shown as well'
+    Then a list of products should be shown, each with a link to View the product detail # features/products.feature:5
+      Undefined step: "a list of products should be shown, each with a link to View the product detail" (Cucumber::Undefined)
+      features/products.feature:5:in `Then a list of products should be shown, each with a link to View the product detail'
+    And a link to Add a New Product should also be shown                                 # features/products.feature:6
+      Undefined step: "a link to Add a New Product should also be shown" (Cucumber::Undefined)
+      features/products.feature:6:in `And a link to Add a New Product should also be shown'
 
 1 scenario (1 undefined)
-4 steps (4 undefined)
-0m0.182s
+4 steps (3 undefined, 1 passed)
+0m0.205s
 
 You can implement step definitions for undefined steps with these snippets:
-
-Given(/^there is an Admin user$/) do
-  pending # express the regexp above with the code you wish you had
-end
 
 When(/^the Admin user visits the products page$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^a list of products should be shown with links to view\/modifiy them$/) do
+Then(/^a list of products should be shown, each with a link to View the product detail$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^a link to Add a New Product should be shown as well$/) do
+Then(/^a link to Add a New Product should also be shown$/) do
   pending # express the regexp above with the code you wish you had
 end
 
@@ -160,7 +153,7 @@ When(/^the Admin user visits the products page$/) do
   pending # express the regexp above with the code you wish you had
 end
 
-Then(/^a list of products should be shown with links to view\/modifiy them$/) do
+Then(/^a list of products should be shown with links to View them$/) do
   pending # express the regexp above with the code you wish you had
 end
 
@@ -251,6 +244,62 @@ Then(/^a link to Add a New Product should be shown as well$/) do
 end
 ```
 
-So all our tests have passed so far. The next step is to test that we are getting a list of products in the page. For this, we will create a factory to create some products first.
+So all our tests have passed so far. The next step is to test that we are actually getting a list of products in the page. For this, we will create a factory to create some products. Add to the `features/support/factories.rb` file:
+
+``` ruby
+FactoryGirl.define do
+  factory :product do |f|
+    f.title "some title"
+    f.description "some description"
+    f.price "10.99"
+    f.image_url "no_image.jpg"
+  end
+end
+```
+
+In the step_definitions file `products.rb` we will add the next test pending:
+
+``` ruby
+Then(/^a list of products should be shown with links to view\/modifiy them$/) do
+  FactoryGirl.create(:product, :title => 'How to write the Depot app with Cucumber and HAML')
+  Product.count.should eq(1)
+  visit(products_path)
+  page.should have_content('How to write the Depot app with Cucumber and HAML')
+  product = Product.first
+  page.html.should =~ /#{product_path(product)}/
+end
+```
+
+On the first line, we create the only product for this test.  We ensure this product is in the database by testing the count.
+Then we use the `visit` method to go to the products_path page. We test for the presence of the title of the book we just added.
+Also, since we only have one product, we load it to instantiate the show product route `product_path(product)`
+
+Finally we add the last test to check for the New Product link.
+
+``` ruby
+Then(/^a link to Add a New Product should also be shown$/) do
+  visit(products_path)
+  page.html.should =~ /#{new_product_path}/
+end
+```
+
+If I explained everything correctly, and you were able to follow, then you should see:
+
+```
+$ bundle exec cucumber
+Using the default profile...
+Feature: Admin interface to view and create products
+
+  Scenario: Show product listing                                                         # features/products.feature:2
+    Given there is an Admin user                                                         # features/step_definitions/products.rb:1
+    When the Admin user visits the products page                                         # features/step_definitions/products.rb:6
+    Then a list of products should be shown, each with a link to View the product detail # features/step_definitions/products.rb:10
+    And a link to Add a New Product should also be shown                                 # features/step_definitions/products.rb:19
+
+1 scenario (1 passed)
+4 steps (4 passed)
+0m0.308s
+```
+
 
 
