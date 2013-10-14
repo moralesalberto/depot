@@ -216,14 +216,10 @@ Now before we run our test, we need to setup the view for the index action. This
 gem 'haml'
 ```
 
-And run `bundle install` to install haml on your system. Now we can create the view. In `app/views/products` create the file `index.html.haml`
-and inside that file let's put a simple listing for the products for now.
+And run `bundle install` to install haml on your system. Now we can create the view. In `app/views/products` create the file `index.html.haml`. For now we will
+just have an empty file.
 
-``` ruby
-
-```
-
-After all that, if we run cucumber now, the results will be:
+After all that code, if we run cucumber, the results will be:
 
 ```
 $ bundle exec cucumber
