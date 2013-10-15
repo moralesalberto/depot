@@ -10,13 +10,13 @@ to document the journey.
 Come join me for a HAML and Cucumber road trip, with Bootstrap 3 and anything else that might
 seem interesting as we hit different parts of the app.
 
-[Chapter 1 - Getting started and Products Listing Feature] (https://github.com/moralesalberto/depot/wiki/01-Getting-started-and-Products-Listing-Feature)
+[Chapter 1 - Getting started and Products Listing Feature] (https://github.com/moralesalberto/depot/wiki/01-Getting-started-and-Products-Listing-Feature)  
   Setup Cucumber, write your first feature
 
-[Chapter 2 - Stylng the Products Listing](https://github.com/moralesalberto/depot/wiki/02-Styling-the-Products-Listing)
+[Chapter 2 - Stylng the Products Listing](https://github.com/moralesalberto/depot/wiki/02-Styling-the-Products-Listing)  
   Setup the style with Bootstrap 3, and setup a seeds.rb file for viewing this on the web.
 
-[Chapter 3 - Adding New Products](https://github.com/moralesalberto/depot/wiki/03-Adding-New-Products)
+[Chapter 3 - Adding New Products](https://github.com/moralesalberto/depot/wiki/03-Adding-New-Products)  
   Write the next feature to create products from the admin interface
 
 The next will come as I continue through the exercise...
