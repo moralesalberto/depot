@@ -14,7 +14,7 @@ seem interesting as we hit different parts of the app.
 <i>Setup Cucumber, write your first feature</i>
 
 [Chapter 2 - Stylng the Products Listing](https://github.com/moralesalberto/depot/wiki/02-Styling-the-Products-Listing)  
-<i>Setup the style with Bootstrap 3, and setup a seeds.rb file for viewing this on the web.</i>
+<i>Change the application layout to use HAML and setup the styles with Bootstrap 3.</i>
 
 [Chapter 3 - Adding New Products](https://github.com/moralesalberto/depot/wiki/03-Adding-New-Products)  
 <i>Write the next feature to create products from the admin interface</i>
