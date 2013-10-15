@@ -19,6 +19,8 @@ seem interesting as we hit different parts of the app.
 [Chapter 3 - Adding New Products](https://github.com/moralesalberto/depot/wiki/03-Adding-New-Products)  
 <i>Write the next feature: Create Products; setup Guard for continuous testing</i>
 
+[Chapter 3 - Editing Products](https://github.com/moralesalberto/depot/wiki/04-Editing-Products)  
+<i>Getting a rhythm with Cucumber, write the editing feature in this chapter</i>
 
 
 
