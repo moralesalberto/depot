@@ -2,10 +2,11 @@
 %html
   %head
     %title Depot
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
     = stylesheet_link_tag "application", :medial => "all", 'data-turbolinks-track' => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 
-  %body{:class => "#{controller.controller_name}"}
-    = yield
-
+  %div{:class => 'container'}
+    %body{:class => "#{controller.controller_name}"}
+      = yield
