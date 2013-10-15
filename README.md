@@ -1,8 +1,15 @@
 Depot Application
 -----------------
 
-This is an exercise of taking the rails Depot application
-and writing it with Cucumber features and HAML for the views
+This is an exercise of taking the rails Depot application and writing it with Cucumber 
+features and HAML for the views. It started with just this README, but that got to be too long
+so now, I am using the repository wiki to document the rest of the journey.
+
+Come join me for a HAML and Cucumber road trip, with Bootstrap 3 and anything else that might
+seem interesting as we hit different parts of the app.
+
+
+### Chapter 01
 
 The first step is to create the rails application without 
 the unit tests
@@ -302,6 +309,7 @@ Feature: Admin interface to view and create products
 0m0.308s
 ```
 
+### Wiki
 If you want to continue with this exercise, please refer to the [wiki](https://github.com/moralesalberto/depot/wiki) on this repository. You will see the rest of the work that I am doing to code the Depot applicaiton with Cucumber and HAML.
 
 
