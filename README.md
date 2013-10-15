@@ -3,13 +3,13 @@ Depot Application
 
 This is an exercise of taking the rails Depot application and writing it with Cucumber 
 features and HAML for the views. It started with just this README, but that got to be too long
-so now, I am using the repository wiki to document the rest of the journey.
+so now, I have moved the explanation to the repository's [wiki](https://github.com/moralesalberto/depot/wiki/02-Styling-the-Products-Listing) to document the rest of the journey.
 
 Come join me for a HAML and Cucumber road trip, with Bootstrap 3 and anything else that might
 seem interesting as we hit different parts of the app.
 
 
-### Chapter 01
+### Chapter 01 - Getting started and Products Listing Feature
 
 The first step is to create the rails application without 
 the unit tests
