@@ -7,6 +7,20 @@
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
 
-  %div{:class => 'container'}
     %body{:class => "#{controller.controller_name}"}
-      = yield
+      %div{:class => "navbar navbar-default navbar-fixed-top"}
+        %div{:class => "container"}
+          %div{:class => "navbar-header"}
+            %button{:type => "button", :class => "navbar-toggle collapsed", "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+              %span{:class => "icon-bar"}
+              %span{:class => "icon-bar"}
+              %span{:class => "icon-bar"}
+            %a{:class => "navbar-brand", :href => "#"} Depot Web Application 
+          %div{:class => "navbar-collapse collapse", :style=> "height: 1px;"}
+            %ul{:class => "nav navbar-nav"}
+              %li
+                = link_to 'List Products', products_path
+              %li
+                = link_to 'New Product', new_product_path
+      %div{:class => "container app_content"}
+        = yield
