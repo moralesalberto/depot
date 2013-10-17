@@ -1,3 +1,4 @@
+= render(:partial => 'shared/errors', :locals => {:object => @product})
 = form_for(@product, :class => "form-horizontal", :role => "form") do |f|
   %div{:class => "form-group"}
     %label Title

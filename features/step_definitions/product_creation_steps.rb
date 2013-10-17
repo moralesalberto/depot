@@ -45,5 +45,5 @@ Then(/^the new form should be returned to the user$/) do
 end
 
 Then(/^an error message should be shown with the "(.*?)" attribute$/) do |error|
-  page.should have_content("Could not save product. #{error.humanize} can't be blank.")
+  page.html.should have_content("#{error.humanize} can't be blank")
 end

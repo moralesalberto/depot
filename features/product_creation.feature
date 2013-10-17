@@ -13,8 +13,9 @@ Feature: Create a new product
     When the Admin visits the new products page
     Then the New Product form should be shown
     When the admin incompletely fills out "<title>", "<description>", "<price>"
-    Then the new form should be returned to the user
-    And an error message should be shown with the "<error>" attribute
+    And submits the new product form
+    Then an error message should be shown with the "<error>" attribute
+    And the New Product form should be shown
 
     Examples:
       | title  | description                         | price | error       |
